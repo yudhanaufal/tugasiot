@@ -1,0 +1,35 @@
+from gpio import *
+from time import *
+
+def main():
+	pinMode(0, IN)
+	print("some one is outside")
+	while True:
+		if digitalRead(0)==HIGH:
+			digitalWrite(1,HIGH)
+			digitalWrite(2,HIGH)
+		else:
+			digitalWrite(1,LOW)
+			digitalWrite(2,LOW)
+			sleep(1)
+			
+
+if __name__ == "__main__":
+	main()
+
+penjelasan
+1.	from gpio import *: Baris ini mengimpor semua fungsi dan variabel yang diperlukan dari modul gpio. Modul gpio mungkin merupakan pustaka Python khusus untuk mengakses GPIO (General Purpose Input/Output) pada perangkat keras seperti Raspberry Pi.
+2.	from time import *: Baris ini mengimpor semua fungsi dan variabel yang diperlukan dari modul time. Modul time menyediakan fungsi-fungsi yang berkaitan dengan waktu seperti sleep() untuk menghentikan eksekusi program untuk beberapa waktu.
+3.	def main():: Mendefinisikan fungsi main(). Ini adalah titik awal eksekusi program.
+4.	pinMode(0, IN): Mengatur pin 0 sebagai input (IN). Ini menentukan bahwa pin 0 akan digunakan untuk membaca data masukan.
+5.	print("some one is outside"): Mencetak pesan "some one is outside" ke konsol. Pesan ini mungkin menandakan bahwa program sedang memantau sensor yang mengindikasikan keberadaan seseorang di luar.
+6.	while True:: Memulai loop tak terbatas. Program akan terus berjalan di dalam loop ini sampai dihentikan secara paksa.
+7.	if digitalRead(0)==HIGH:: Memeriksa apakah nilai yang dibaca dari pin 0 adalah tinggi (HIGH). Ini menunjukkan bahwa ada sinyal masukan (mungkin seseorang telah mendekati sensor).
+8.	digitalWrite(1,HIGH): Mengatur pin 1 menjadi tinggi (HIGH).untuk menyalakan lampu.
+9.	digitalWrite(2,HIGH): Mengatur pin 2 menjadi tinggi (HIGH).untuk membuka garasi.
+10.	else:: Blok ini dijalankan jika kondisi if sebelumnya tidak terpenuhi, yang berarti tidak ada sinyal masukan yang terdeteksi.
+11.	digitalWrite(1,LOW): Mengatur pin 1 menjadi rendah (LOW). Ini mungkin digunakan untuk mematikan perangkat output yang diaktifkan sebelumnya.
+12.	sleep(1): Memberikan jeda 1 detik sebelum program kembali ke awal loop untuk memeriksa lagi status input.
+13.	if __name__ == "__main__":: Baris ini memeriksa apakah skrip ini dijalankan secara langsung sebagai program utama atau diimpor sebagai modul ke dalam program lain.
+14.	main(): Memanggil fungsi main(), yang memulai eksekusi program.
+
